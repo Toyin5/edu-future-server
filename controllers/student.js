@@ -39,8 +39,7 @@ export const registerStudent = async (req, res) => {
       status: 201,
       data: {
         email,
-        first_name,
-        last_name,
+        fullName
       },
     });
   } catch (error) {
