@@ -7,7 +7,7 @@ import sendHtml from "../utils/sendHtml.js";
 import Jwt from "jsonwebtoken";
 
 export const registerStudent = async (req, res) => {
-  const { email, password, first_name, last_name, phone } = req.body;
+  const { email, password, fullName, phone } = req.body;
   const userExists = await Student.findOne({ email });
   if (userExists) {
     return res.status(409).json({
@@ -21,8 +21,7 @@ export const registerStudent = async (req, res) => {
       email,
       phone,
       password: await bcrypt.hash(password, salt),
-      first_name,
-      last_name,
+      fullName
     });
     const verify = new Verify({
       studentId: student._id,

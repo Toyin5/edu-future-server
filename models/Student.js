@@ -16,11 +16,7 @@ const StudentSchema = new Schema(
       type: String,
       required: true,
     },
-    first_name: {
-      type: String,
-      required: true,
-    },
-    last_name: {
+    fullName: {
       type: String,
       required: true,
     },
